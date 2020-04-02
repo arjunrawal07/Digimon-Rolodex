@@ -11,6 +11,15 @@ class App extends React.Component {
       digimon: []
     };
   }
+
+  loopThruDigimon = items => {
+    for (let i = 0; i < items.length; i++) {
+      this.setState({
+        digimon: items[i]
+      });
+    }
+  };
+
   componentDidMount() {
     let URL = "https://digimon-api.herokuapp.com/api/digimon";
 
@@ -23,13 +32,13 @@ class App extends React.Component {
       });
   }
 
-  nextigimon(event) {
-    let display = this.state.digimon.forEach(index => {
-      this.setState({
-        digimon: display.index
-      });
-    });
-  }
+  previousDigimon = event => {
+    this.loopThruDigimon(this.componentDidMount);
+  };
+
+  nextDigimon = event => {
+    this.loopThruDigimon(this.componentDidMount);
+  };
 
   render() {
     // console.log(this.state.digimon);
@@ -50,7 +59,7 @@ class App extends React.Component {
           <h1>Digimon: Digital Monsters!</h1>
         </header>
         <div className="container">
-          <button className="buttonLeft" onClick={this.componentDidMount}>
+          <button className="buttonLeft" onClick={this.previousDigimon}>
             Previous
           </button>
 
@@ -58,7 +67,7 @@ class App extends React.Component {
             <div className="image">{digiImages}</div>
             <div className="text">{digiName}</div>
           </div>
-          <button className="buttonRight" onClick={this.componentDidMount}>
+          <button className="buttonRight" onClick={this.nextDigimon}>
             Next
           </button>
         </div>
