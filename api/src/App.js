@@ -23,7 +23,7 @@ class App extends React.Component {
       });
   }
 
-  newDigimon() {
+  nextigimon(event) {
     let display = this.state.digimon.forEach(index => {
       this.setState({
         digimon: display.index
