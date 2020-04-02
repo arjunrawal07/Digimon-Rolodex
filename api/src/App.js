@@ -23,9 +23,13 @@ class App extends React.Component {
       });
   }
 
-  newDigimon = () => {
-    this.componentDidMount();
-  };
+  newDigimon() {
+    let display = this.state.digimon.forEach(index => {
+      this.setState({
+        digimon: display.index
+      });
+    });
+  }
 
   render() {
     // console.log(this.state.digimon);
@@ -46,20 +50,21 @@ class App extends React.Component {
           <h1>Digimon: Digital Monsters!</h1>
         </header>
         <div className="container">
-          <button className="buttonLeft" onClick={this.newDigimon}>
-            Backward
+          <button className="buttonLeft" onClick={this.componentDidMount}>
+            Previous
           </button>
-          >
+
           <div className="apiBox">
             <div className="image">{digiImages}</div>
             <div className="text">{digiName}</div>
           </div>
-          <button className="buttonRight" onClick={this.newDigimon}>
-            Forward
+          <button className="buttonRight" onClick={this.componentDidMount}>
+            Next
           </button>
         </div>
       </div>
     );
   }
 }
+
 export default App;

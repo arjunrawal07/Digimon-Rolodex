@@ -14,13 +14,13 @@ body {
 }
 .buttonLeft {
   border: 2px solid white;
-  color: white;
+  color: black;
   grid-row: 1 / span 10;
   grid-column: 0 / span 1;
 }
 .buttonRight {
   border: 2px solid white;
-  color: white;
+  color: black;
   grid-row: 1 / span 10;
   grid-column: 10 / span 1;
 }
