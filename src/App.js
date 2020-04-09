@@ -25,12 +25,6 @@ class App extends React.Component {
         console.log(this.state.digimons[this.state.currentCount]);
       });
   }
-  // loopThruDigimon = items => {
-  // for (let i = 0; i < items.length; i++) {
-  //   this.setState({
-  //     digimons: items[i]
-  //   });
-  // }
 
   previousDigimon = () => {
     if (this.state.currentCount > 0) {
@@ -45,17 +39,22 @@ class App extends React.Component {
   };
 
   nextDigimon = () => {
-    let currentCount = this.state.currentCount + 1;
-    this.setState({
-      currentCount: currentCount,
-    });
+    if (this.state.currentCount < this.state.digimons.length - 1) {
+      this.setState({
+        currentCount: this.state.currentCount + 1,
+      });
+    } else {
+      this.setState({
+        currentCount: 0,
+      });
+      // } el`se {
+      //   this.setState({
+      //     currentCount: this.state.digimons.length,
+      //   });
+    }
   };
 
   render() {
-    // let digiImages = digimon.map((image, i) => {
-    //   return <Image key={i} image={image.img} />;
-    // });
-
     if (this.state.digimons.length > 0) {
       return (
         <div className="App">
@@ -89,27 +88,7 @@ class App extends React.Component {
       );
     }
 
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Digimon: Digital Monsters!</h1>
-        </header>
-        <div className="container">
-          {/* <button className="buttonLeft" onClick={this.previousDigimon}> */}
-          <button className="buttonLeft">Previous</button>
-
-          <div className="apiBox">
-            {/* <h1>{this.state.digimons[this.state.currentCount].name}</h1> */}
-            {/* <div className="image">
-            </div> */}
-            {/* <div className="text"> */}
-            {/* </div> */}
-          </div>
-          {/* <button className="buttonRight" onClick={this.nextDigimon}> */}
-          <button className="buttonRight">Next</button>
-        </div>
-      </div>
-    );
+    return <div className="App"></div>;
   }
 }
 
