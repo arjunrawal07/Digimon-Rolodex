@@ -40,7 +40,11 @@ body {
 
 .text {
   border: 2px solid magenta;
-  grid-row: 5 / span 3;
+  grid-row: 5 / span 1;
+  grid-column: 2 / span 8;
+}
+.subheader {
+  grid-row: 6 / span 1;
   grid-column: 2 / span 8;
 }
 .App-logo {

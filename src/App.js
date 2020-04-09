@@ -8,7 +8,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      digimon: []
+      digimons: [],
+      currentCount: 0,
     };
   }
 
@@ -16,41 +17,77 @@ class App extends React.Component {
     let URL = "https://digimon-api.herokuapp.com/api/digimon";
 
     fetch(URL)
-      .then(res => res.json())
-      .then(convertedRes => {
+      .then((res) => res.json())
+      .then((convertedRes) => {
         this.setState({
-          digimon: convertedRes
+          digimons: convertedRes,
         });
+        console.log(this.state.digimons[this.state.currentCount]);
       });
   }
-  loopThruDigimon = items => {
-    for (let i = 0; i < items.length; i++) {
+  // loopThruDigimon = items => {
+  // for (let i = 0; i < items.length; i++) {
+  //   this.setState({
+  //     digimons: items[i]
+  //   });
+  // }
+
+  previousDigimon = () => {
+    if (this.state.currentCount > 0) {
       this.setState({
-        digimon: items[i]
+        currentCount: this.state.currentCount - 1,
+      });
+    } else {
+      this.setState({
+        currentCount: this.state.digimons.length - 1,
       });
     }
   };
 
-  previousDigimon = event => {
-    this.loopThruDigimon(this.componentDidMount);
-  };
-
-  nextDigimon = event => {
-    this.loopThruDigimon(this.componentDidMount);
+  nextDigimon = () => {
+    let currentCount = this.state.currentCount + 1;
+    this.setState({
+      currentCount: currentCount,
+    });
   };
 
   render() {
-    console.log(this.state.digimon);
+    // let digiImages = digimon.map((image, i) => {
+    //   return <Image key={i} image={image.img} />;
+    // });
 
-    let digimon = this.state.digimon;
-
-    let digiImages = digimon.map((image, i) => {
-      return <Image key={i} image={image.img} />;
-    });
-
-    let digiName = digimon.map((name, i) => {
-      return <Name key={i} name={name.name} />;
-    });
+    if (this.state.digimons.length > 0) {
+      return (
+        <div className="App">
+          <header className="App-header">
+            <h1>Digimon: Digital Monsters!</h1>
+          </header>
+          <div className="container">
+            <button className="buttonLeft" onClick={this.previousDigimon}>
+              Previous
+            </button>
+            <div className="apiBox">
+              <div className="image">
+                {" "}
+                <img
+                  src={this.state.digimons[this.state.currentCount].img}
+                ></img>
+              </div>
+              <div className="text">
+                <h1>{this.state.digimons[this.state.currentCount].name} </h1>
+              </div>
+              <div className="subheader">
+                {" "}
+                Level: {this.state.digimons[this.state.currentCount].level}
+              </div>{" "}
+              <button className="buttonRight" onClick={this.nextDigimon}>
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div className="App">
@@ -58,17 +95,18 @@ class App extends React.Component {
           <h1>Digimon: Digital Monsters!</h1>
         </header>
         <div className="container">
-          <button className="buttonLeft" onClick={this.previousDigimon}>
-            Previous
-          </button>
+          {/* <button className="buttonLeft" onClick={this.previousDigimon}> */}
+          <button className="buttonLeft">Previous</button>
 
           <div className="apiBox">
-            <div className="image">{digiImages}</div>
-            <div className="text">{digiName}</div>
+            {/* <h1>{this.state.digimons[this.state.currentCount].name}</h1> */}
+            {/* <div className="image">
+            </div> */}
+            {/* <div className="text"> */}
+            {/* </div> */}
           </div>
-          <button className="buttonRight" onClick={this.nextDigimon}>
-            Next
-          </button>
+          {/* <button className="buttonRight" onClick={this.nextDigimon}> */}
+          <button className="buttonRight">Next</button>
         </div>
       </div>
     );
