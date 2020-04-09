@@ -12,14 +12,6 @@ class App extends React.Component {
     };
   }
 
-  loopThruDigimon = items => {
-    for (let i = 0; i < items.length; i++) {
-      this.setState({
-        digimon: items[i]
-      });
-    }
-  };
-
   componentDidMount() {
     let URL = "https://digimon-api.herokuapp.com/api/digimon";
 
@@ -31,6 +23,13 @@ class App extends React.Component {
         });
       });
   }
+  loopThruDigimon = items => {
+    for (let i = 0; i < items.length; i++) {
+      this.setState({
+        digimon: items[i]
+      });
+    }
+  };
 
   previousDigimon = event => {
     this.loopThruDigimon(this.componentDidMount);
@@ -41,7 +40,7 @@ class App extends React.Component {
   };
 
   render() {
-    // console.log(this.state.digimon);
+    console.log(this.state.digimon);
 
     let digimon = this.state.digimon;
 

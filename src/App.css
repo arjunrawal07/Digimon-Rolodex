@@ -5,7 +5,7 @@ body {
   text-align: center;
 }
 .container {
-  border: 2px solid blue;
+  border: 2px solid lightblue;
   height: 600px;
   margin: 100px;
   display: grid;
@@ -13,19 +13,18 @@ body {
   grid-template-columns: repeat(10, auto);
 }
 .buttonLeft {
-  border: 2px solid white;
+  border: 5px solid black;
   color: black;
   grid-row: 1 / span 10;
   grid-column: 0 / span 1;
 }
 .buttonRight {
-  border: 2px solid white;
+  border: 5px solid black;
   color: black;
   grid-row: 1 / span 10;
   grid-column: 10 / span 1;
 }
 .apiBox {
-  border: 2px solid yellow;
   color: yellowgreen;
   grid-row: 1 / span 10;
   grid-column: 2 / span 8;
