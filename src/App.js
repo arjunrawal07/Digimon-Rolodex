@@ -47,10 +47,6 @@ class App extends React.Component {
       this.setState({
         currentCount: 0,
       });
-      // } el`se {
-      //   this.setState({
-      //     currentCount: this.state.digimons.length,
-      //   });
     }
   };
 
@@ -62,9 +58,10 @@ class App extends React.Component {
             <h1>Digimon: Digital Monsters!</h1>
           </header>
           <div className="container">
-            <button className="buttonLeft" onClick={this.previousDigimon}>
-              Previous
-            </button>
+            <button
+              className="buttonLeft"
+              onClick={this.previousDigimon}
+            ></button>
             <div className="apiBox">
               <div className="image">
                 {" "}
@@ -79,10 +76,8 @@ class App extends React.Component {
                 {" "}
                 Level: {this.state.digimons[this.state.currentCount].level}
               </div>{" "}
-              <button className="buttonRight" onClick={this.nextDigimon}>
-                Next
-              </button>
             </div>
+            <button className="buttonRight" onClick={this.nextDigimon}></button>
           </div>
         </div>
       );
