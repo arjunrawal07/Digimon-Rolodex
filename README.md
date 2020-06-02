@@ -2,7 +2,7 @@
 
 ## Description: 
 
-This application accesses the [Digimon API] (https://digimon-api.herokuapp.com/api/digimon) to render images and information about each Digimon in a slider UI pattern.
+This application accesses the [Digimon API](https://digimon-api.herokuapp.com/api/digimon) to render images and information about each Digimon in a slider UI pattern.
 
 ## Technologies Used:
 Front-End:
