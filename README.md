@@ -1,3 +1,47 @@
+## Digimon Rolodex
+
+## Description:
+
+This application accesses the [Digimon API](https://digimon-api.herokuapp.com/api/digimon) to render images and information about each Digimon in a slider UI pattern.
+
+## Technologies Used:
+
+Front-End:
+
+- React
+- Javascript
+- CSS
+
+## Challenges:
+
+My main challenege in building this application centered on writing the functions for the slider to go to the next or previous Digimon in the API. While this challenege was not very complex, I embraced it as an exercise to flex my Javascript logic skills. The logic for these functions are included below.
+
+```js
+previousDigimon = () => {
+  if (this.state.currentCount > 0) {
+    this.setState({
+      currentCount: this.state.currentCount - 1,
+    });
+  } else {
+    this.setState({
+      currentCount: this.state.digimons.length - 1,
+    });
+  }
+};
+
+nextDigimon = () => {
+  if (this.state.currentCount < this.state.digimons.length - 1) {
+    this.setState({
+      currentCount: this.state.currentCount + 1,
+    });
+  } else {
+    this.setState({
+      currentCount: 0,
+    });
+  }
+};
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
