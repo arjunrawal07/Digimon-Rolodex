@@ -14,7 +14,7 @@ Front-End:
 
 ## Challenges:
 
-My main challenege in building this application centered on writing the functions for the slider to go to the next or previous Digimon in the API. While this challenege was not very complex, I embraced it as an exercise to flex my Javascript logic skills. The logic for these functions are included below.
+My main challenge in building this application centered on writing the functions for the slider to go to the next or previous Digimon in the API. While this challenege was not very complex, I embraced it as an exercise to flex my Javascript logic skills. The logic for these functions are included below.
 
 ```js
 previousDigimon = () => {
